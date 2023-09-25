@@ -7,6 +7,9 @@ export default class Inscripcion extends Component {
     this.state = {
         modalVentana_Correo:false,
         modalVentana_Facebook:false,
+        nombre: "",
+        correo: "",
+        password: ""
     };
   }
 
@@ -20,7 +23,21 @@ export default class Inscripcion extends Component {
     }
 
     const modalCierra = () => {
-        this.setState({modalVentana_Correo:false,modalVentana_Facebook:false})
+        //this.setState({modalVentana_Correo:false,modalVentana_Facebook:false})
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            // Typical action to be performed when the document is ready:
+            console.log(xhttp.responseText);
+            if(xhttp.responseText == "1"){
+                alert("Inscripción exitosa")
+            }else{
+                alert("Error al inscribirse")
+            }
+        }
+        };
+        xhttp.open("GET", "https://doc2.000webhostapp.com/2023B/datos.php?nombre="+this.state.nombre+"&correo="+this.state.correo+"&password="+this.state.password, true);
+        xhttp.send();
     }
 
 
@@ -81,11 +98,11 @@ export default class Inscripcion extends Component {
                 borderRadius:5,
             }}>
                 <Text style={{fontSize:20,marginLeft:5,color:"black"}}>Nombre: </Text>
-                <TextInput></TextInput>
+                <TextInput onChangeText={(nombre) => this.state({nombre})}></TextInput>
                 <Text style={{fontSize:20,marginLeft:5,color:"black"}}>Correo: </Text>
-                <TextInput></TextInput>
+                <TextInput onChangeText={(correo) => this.state({correo})}></TextInput>
                 <Text style={{fontSize:20,marginLeft:5,color:"black"}}>Password: </Text>
-                <TextInput></TextInput>
+                <TextInput onChangeText={(password) => this.state({password})}></TextInput>
                 <TouchableOpacity style={{
                     borderWidth:2,
                     backgroundColor:"blue",

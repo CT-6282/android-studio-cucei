@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import INICIO from "./Inicio";
 import INSCRIPCION from "./Inscripcion"
+import MENU from "./Menu"
 
 export default class Navegacion extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ export default class Navegacion extends Component {
         <Stack.Navigator>
           <Stack.Screen name="inicio" component={INICIO} options={{headerShown:false}} />
           <Stack.Screen name="inscripcion" component={INSCRIPCION} />
+          <Stack.Screen name="Menu" component={MENU} />
         </Stack.Navigator>
       </NavigationContainer>
     );
