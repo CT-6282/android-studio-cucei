@@ -20,7 +20,7 @@ export default class Navegacion extends Component {
         <Stack.Navigator>
           <Stack.Screen name="inicio" component={INICIO} options={{headerShown:false}} />
           <Stack.Screen name="inscripcion" component={INSCRIPCION} />
-          <Stack.Screen name="Menu" component={MENU} />
+          <Stack.Screen name="Menu" component={MENU} options={{headerShown:false}} />
         </Stack.Navigator>
       </NavigationContainer>
     );
