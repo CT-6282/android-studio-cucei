@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TAB1 from "./Tab1";
 import TAB2 from "./Tab2";
+import TAB4 from "./Tab4";
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class Menu extends Component {
@@ -21,16 +22,30 @@ export default class Menu extends Component {
       screenOptions={{
         activeTintColor: '#e91e63',
       }}>
-      <Tab.Screen name="Inicio" component={TAB1} initialParams={{nombre:this.props.route.params.nombre}}
-      options={{
+      <Tab.Screen name="Listas"
+        component={TAB1}
+        //initialParams={{nombre:this.props.route.params.nombre}}
+        options={{
         tabBarIcon: ({ color, size }) => (
-          <Icon name="body-outline" color={"red"} size={30} />
+          <Icon name="list-circle" color={"#077CAB"} size={30} />
         ),
       }}/>
-      <Tab.Screen name="Tab2" component={TAB2} initialParams={{nombre:this.props.route.params.nombre}}
-      options={{
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="skull-outline" color={"red"} size={30} />
+      <Tab.Screen
+        name="Videos"
+        component={TAB2}
+        //initialParams={{nombre:this.props.route.params.nombre}}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="videocam" color={"#077CAB"} size={30} />
+        ),
+      }}/>
+      <Tab.Screen
+        name="Mapa"
+        component={TAB4}
+        //initialParams={{nombre:this.props.route.params.nombre}}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="map" color={"#077CAB"} size={30} />
         ),
       }}/>
     </Tab.Navigator>

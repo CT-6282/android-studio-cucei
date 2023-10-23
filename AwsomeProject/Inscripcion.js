@@ -23,7 +23,6 @@ export default class Inscripcion extends Component {
     }
 
     const modalCierra = () => {
-        //this.setState({modalVentana_Correo:false,modalVentana_Facebook:false})
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -34,13 +33,13 @@ export default class Inscripcion extends Component {
             }else{
                 alert("Error al inscribirse")
             }
+            this.setState({modalVentana_Correo:false, modalVentana_Facebook:false})
         }
         };
-        xhttp.open("GET", "https://doc2.000webhostapp.com/2023B/datos.php?nombre="+this.state.nombre+"&correo="+this.state.correo+"&password="+this.state.password, true);
+        xhttp.open("GET", "http://claseprogranataly.000webhostapp.com/datos.php?Nombre=+this.state.nombre+&Correo=+this.state.correo+&Password=+this.state.password", true);
         xhttp.send();
+        console.log("Diste click al boton de EMAIL!!");
     }
-
-
 
     return (
       <View>
@@ -98,11 +97,11 @@ export default class Inscripcion extends Component {
                 borderRadius:5,
             }}>
                 <Text style={{fontSize:20,marginLeft:5,color:"black"}}>Nombre: </Text>
-                <TextInput onChangeText={(nombre) => this.state({nombre})}></TextInput>
+                <TextInput onChangeText={(nombre) => this.setState({nombre})}></TextInput>
                 <Text style={{fontSize:20,marginLeft:5,color:"black"}}>Correo: </Text>
-                <TextInput onChangeText={(correo) => this.state({correo})}></TextInput>
+                <TextInput onChangeText={(correo) => this.setState({correo})}></TextInput>
                 <Text style={{fontSize:20,marginLeft:5,color:"black"}}>Password: </Text>
-                <TextInput onChangeText={(password) => this.state({password})}></TextInput>
+                <TextInput onChangeText={(password) => this.setState({password})}></TextInput>
                 <TouchableOpacity style={{
                     borderWidth:2,
                     backgroundColor:"blue",

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { WebView } from 'react-native-webview';
 import MenuDrawer from 'react-native-side-drawer';
 
 
@@ -18,10 +19,10 @@ export default class Tab1 extends Component {
   drawerContent = () => {
     return (
       <View>
-        <Text style={{color:"white", textAlign:"center", fontSize:15,}}>Bienvenido, {this.propsparams.nombre}</Text>
+        <Text style={{color:"white", textAlign:"center", fontSize:15,}}>Bienvenido, {/*{this.propsparams.nombre}*/}</Text>
       <TouchableOpacity onPress={this.toggleOpen} style={styles.animatedBox}>
         <Image
-        source={require('../assets/Logo.png')}
+        source={require('./Imagenes/Emblem_of_the_First_Galactic_Empire.png')}
         style={{width:30, height:30}}
         ></Image>
         <Text style={{color:"white", textAlign:"center", fontSize:15,}}>Cerrar Drawer</Text>
@@ -33,7 +34,21 @@ export default class Tab1 extends Component {
   render() {
     return (
         <View style={styles.container}>
-        <MenuDrawer
+          <ScrollView horizontal={true}>
+          <WebView
+            source={{ uri: 'https://www.youtube.com/embed/dQw4w9WgXcQ' }}
+            style={{ width: 320, height: 180 }}
+          />
+          <WebView
+            source={{ uri: 'https://www.youtube.com/embed/2ZIpFytCSVc' }}
+            style={{ width: 320, height: 180 }}
+          />
+          <WebView
+            source={{ uri: 'https://www.youtube.com/embed/3tmd-ClpJxA' }}
+            style={{ width: 320, height: 180 }}
+          />
+        </ScrollView>
+        {/*<MenuDrawer
           open={this.state.open}
           position={'left'}
           drawerContent={this.drawerContent()}
@@ -51,7 +66,7 @@ export default class Tab1 extends Component {
             backgroundColor:"#F01292",}}>
             <Text style={{color:"white", textAlign:"center", fontSize:15,}}>Abrir Drawer</Text>
           </TouchableOpacity>
-        </MenuDrawer>
+        </MenuDrawer>*/}
       </View>
     );
   }

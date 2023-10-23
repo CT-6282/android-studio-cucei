@@ -9,6 +9,8 @@ export default class Inicio extends Component {
     super(props);
     this.state = {
         //declaración de variables 
+        //eslint-disable.-next-line no-undef
+        //context: contextType,
     };
   }
 
@@ -18,6 +20,7 @@ export default class Inicio extends Component {
 
     const clickbemail = () => {
       console.log("Diste click al boton de EMAIL!!");
+      navigation.navigate("Menu");
     }
 
     const clickbfacebook = () => {
@@ -36,10 +39,10 @@ export default class Inicio extends Component {
       <View>
         <Image
         style={styles.Imagen1}
-        source={require ('./Imagenes/ManRamp_02_750px_2x.jpg')}
+        source={require ('./Imagenes/Emblem_of_the_First_Galactic_Empire.png')}
         />
         <View style={styles.login}>
-            <Text style = {styles.txthandyman}>Bienvenido a RAMP MAN!!</Text>
+            <Text style = {styles.txthandyman}>¡¡Bienvenido a RAMP MAN!!</Text>
             <TouchableOpacity style = {styles.bemail} onPress={clickbemail}>
               <View style={styles.btnemail}>
                <Text style = {styles.txtbtnemail}> Inicia con tu EMAIL</Text>
@@ -54,9 +57,9 @@ export default class Inicio extends Component {
             </View>
             </TouchableOpacity>
 
-            <Text style = {styles.txtcreacuenta}>No tienes cuenta?</Text>
+            <Text style = {styles.txtcreacuenta}>¿No tienes cuenta?</Text>
               <TouchableOpacity style={styles.button} onPress={ir_a_insc}>
-                     <Text style={styles.txtaqui}>Da click aquí!</Text>
+                     <Text style={styles.txtaqui}>¡Da click aquí!</Text>
               </TouchableOpacity>
         </View>
       </View>
@@ -107,7 +110,7 @@ const styles = StyleSheet.create ({
 
     txthandyman:{
         fontSize:22,
-        color:"#DE4604",
+        color:"#FFFFFF",
         marginLeft:25,
         marginTop:0,
     },
@@ -153,15 +156,15 @@ const styles = StyleSheet.create ({
         width:393 ,
         height:260,
         borderWidth:40,
-        borderColor:"#7C3C7E",
-        backgroundColor:"#7C3C7E",
+        borderColor:"#489fb5",
+        backgroundColor:"#489fb5",
         borderRadius:30,
         marginLeft:0,
     },
 
     Imagen1:{
         width:400,
-        height:500,
+        height:400,
     }
 
 })
